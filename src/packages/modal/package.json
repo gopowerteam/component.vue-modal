@@ -1,0 +1,38 @@
+{
+  "name": "@gopowerteam/v-modal",
+  "version": "1.0.0",
+  "description": "modal api for vue 3",
+  "main": "dist/vue-draggable-next.cjs.js",
+  "unpkg": "dist/vue-draggable-next.global.js",
+  "jsdelivr": "dist/vue-draggable-next.global.js",
+  "module": "dist/vue-draggable-next.esm-bundler.js",
+  "types": "dist/vue-draggable-next.d.ts",
+  "sideEffects": false,
+  "author": {
+    "name": "zhuchentong",
+    "email": "2037630@163.com"
+  },
+  "files": [
+    "dist/*.js",
+    "dist/vue-draggable-next.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "typescript",
+    "javascript",
+    "vue",
+    "vue3",
+    "gopowerteam",
+    "vue-modal"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anish2690/vue-draggable-next.git"
+  },
+  "homepage": "https://github.com/anish2690/vue-draggable-next#readme"
+}

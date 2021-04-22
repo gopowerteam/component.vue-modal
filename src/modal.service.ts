@@ -34,6 +34,6 @@ export function useModal() {
 
             modal.close(id, data)
         },
-        closeAll: modal.closeAll
+        closeAll: () => modal.closeAll()
     }
 }

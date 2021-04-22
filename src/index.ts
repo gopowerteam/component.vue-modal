@@ -1,4 +1,7 @@
-import ModalProviderComponent from './modal-provider.vue'
+import { default as ModalProvider } from './modal-provider.vue'
 
-export const ModalProvider = ModalProviderComponent
-export * from './modal.service'
+export { useModal } from './modal.service'
+
+export {
+    ModalProvider
+}

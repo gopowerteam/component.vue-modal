@@ -55,6 +55,9 @@ function onCloseModal() {
 </script>
 
 <style lang="stylus" scoped>
+.modal-container
+  z-index 10000
+  
 .modal-wrapper
     position fixed
     top 0

@@ -4,19 +4,18 @@ slot
 teleport(
     to="body"
 )
-    transition-group(name="modal-fade")
-        modal-container(
-            v-for="(modal,index) in modals"
-            :key="modal.id"
-            :id="modal.id"
-            :component="modal.component"
-            :params="modal.props"
-            :title="modal.config.title"
-            :closable="modal.config.closable"
-            :maskClosable="modal.config.maskClosable"
-            :min-width="minWidth"
-            :width="modal.config.width"
-        )
+    modal-container(
+        v-for="(modal,index) in modals"
+        :key="modal.id"
+        :id="modal.id"
+        :component="modal.component"
+        :params="modal.props"
+        :title="modal.config.title"
+        :closable="modal.config.closable"
+        :maskClosable="modal.config.maskClosable"
+        :min-width="minWidth"
+        :width="modal.config.width"
+    )
 </template>
 
 <script setup lang="ts">

@@ -17,7 +17,6 @@
 <script setup lang="ts">
 import { computed, defineProps, inject } from "vue";
 import closeSVG from "@/assets/icons/close.svg";
-import type { IModalWindowOption } from "./interfaces";
 const modal = inject("modal") as any;
 const props = defineProps({
   component: {

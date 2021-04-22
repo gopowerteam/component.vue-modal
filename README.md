@@ -45,7 +45,7 @@ export default defineComponent({
 
 通过使用`useModal`获取`modal`对象,然后通过`open`方法即可打开弹窗.
 
-```html
+```typescript
 import HelloWorld from "../components/HelloWorld.vue";
 import { useModal } from "@gopowerteam/vue-modal";
 
@@ -79,7 +79,7 @@ export default defineComponent({
 #### open   
 **打开弹窗**
 
-```
+```javascript
 const modal = useModal()
 modal.open(ModalOption)
 ```
@@ -94,12 +94,13 @@ modal.open(ModalOption)
 | header       | Boolean      |   true   | 是否显示弹窗标题栏           |
 | closable     | Boolean      |   true   | 是否显示窗口关闭按钮         |
 | maskClosable | Boolean      |   true   | 点击mask区域是否可以关闭弹窗 |
+| width | Number      |   -  | 窗口宽度 |
 
 
 ### close
 **关闭弹窗**
 
-```
+```javascript
 const modal = useModal()
 modal.close()
 ```
@@ -107,7 +108,8 @@ modal.close()
 在打开弹窗的组件页面执行`modal.close`即可关闭组件所在的弹窗页面
 
 `close`的参数将作为回传数据进行返回
-```
+
+```javascript
 modal.close({result:true})
 ```
 
@@ -115,17 +117,19 @@ modal.close({result:true})
 ### closeAll
 **关闭所有弹窗**
 
-```
+```javascript
 const modal = useModal()
 modal.closeAll()
 ```
 
-### 数据回传
+### 补充
 ---
+
+#### 数据回传
 
 `modal.open`返回对象为`promise`对象,通过`then`即可接收回传数据
 
-```
+```javascript
 const modal = useModal()
 modal.open(ModalOption).then(data=>{
   // 处理回传数据
@@ -134,7 +138,7 @@ modal.open(ModalOption).then(data=>{
 
 通过`modal.close`即可将数据进行回传
 
-```
+```javascript
 //open
 modal.open(...).then(data=>{
   console.log(data) // {result:true}
@@ -143,4 +147,16 @@ modal.open(...).then(data=>{
 // close
 modal.close({result:true})
 ```
+
+#### 窗体最小宽度
+
+窗体最小宽度可以在`modal-provider`上进行设置,默认为`500px`
+
+```html
+<template>
+<modal-provider :min-width="800">
+  ...
+</template>
+```
+
 

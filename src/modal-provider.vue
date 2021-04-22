@@ -14,7 +14,8 @@ teleport(
             :title="modal.config.title"
             :closable="modal.config.closable"
             :maskClosable="modal.config.maskClosable"
-            :width="modal.config.width || minWidth"
+            :min-width="minWidth"
+            :width="modal.config.width"
         )
 </template>
 

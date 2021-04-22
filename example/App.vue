@@ -1,5 +1,5 @@
 <template>
-  <modal-provider>
+  <modal-provider :min-width="800">
     <page1></page1>
   </modal-provider>
 </template>

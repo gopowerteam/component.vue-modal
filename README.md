@@ -5,6 +5,12 @@
 ### 安装(Install)
 ---
 
+```
+npm install @gopowerteam/vue-modal --save
+// OR
+yarn add  @gopowerteam/vue-modal
+```
+
 `App.vue`
 
 ```html

@@ -33,6 +33,14 @@
     "vue": "^3.0.5",
     "vue-tsc": "^0.0.24"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gopowerteam/component.vue-modal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gopowerteam/component.vue-modal/issues"
+  },
+  "homepage": "https://github.com/gopowerteam/component.vue-modal",
   "license": "MIT",
   "peerDependencies": {
     "vue": "^3.0.5"

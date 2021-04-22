@@ -1,7 +1,7 @@
 <template lang="pug">
 .modal-container
   .modal-wrapper(@click.self="maskClosable&&onCloseModal()")
-      .modal-content
+      .modal-content(:style="{width:`${width}px`}")
           .modal-header(v-if="header")
               .title {{title}}
               .action
@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { defineProps, inject } from "vue";
 import closeSVG from "@/assets/icons/close.svg";
-
+import type { IModalWindowOption } from "./interfaces";
 const modal = inject("modal") as any;
 const props = defineProps({
   component: {
@@ -27,6 +27,10 @@ const props = defineProps({
   params: {
     type: Object,
     default: () => {},
+  },
+  width: {
+    type: Number,
+    default: 500,
   },
   title: {
     type: String,
@@ -55,10 +59,8 @@ function onCloseModal() {
 </script>
 
 <style lang="stylus" scoped>
-.modal-container
-  z-index 10000
-  
 .modal-wrapper
+    z-index 10000
     position fixed
     top 0
     bottom 0

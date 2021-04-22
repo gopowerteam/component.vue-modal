@@ -1,8 +1,9 @@
 {
   "name": "@gopowerteam/vue-modal",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -10,7 +11,8 @@
     ".": {
       "import": "./dist/index.es.js",
       "require": "./dist/index.umd.js"
-    }
+    },
+    "./dist/": "./dist/"
   },
   "types": "./dist/index.d.ts",
   "author": {
@@ -20,7 +22,7 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite preview",
-    "build": "vue-tsc --noEmit --declaration && vite build && npm run generate:type",
+    "build": "vue-tsc --noEmit && vite build && npm run generate:type",
     "generate:type": "tsc --p tsconfig.dts.json --declaration --emitDeclarationOnly --esModuleInterop --outDir dist"
   },
   "devDependencies": {

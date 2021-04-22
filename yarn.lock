@@ -240,6 +240,18 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@gopowerteam/vue-modal@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/@gopowerteam/vue-modal/-/vue-modal-0.1.2.tgz#7052b4be7c30c8d8592bb098b8a91fea7c74ff02"
+  integrity sha512-luaYfEtm3gNcF31H6wqifhw7eVuQyd+7JaXYV3vhXTv0HehhCHfs0e/qHGNwbhFdCltJlYAun7R2xW0c1r9wKw==
+
+"@gopowerteam/vue-modal@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.npmjs.org/@gopowerteam/vue-modal/-/vue-modal-0.1.3.tgz#50407680487eacb60b215f0c1b58497beb38f62c"
+  integrity sha512-JFM/e1K9w7WyLkh/6uSCEhBXsO8HkJKnA15oGqy7ACJIFHHb4oDerSDmW3CzNZMJF1CFM4fLOGScLbd5D97BdQ==
+  dependencies:
+    "@gopowerteam/vue-modal" "^0.1.2"
+
 "@types/node@^14.14.41":
   version "14.14.41"
   resolved "https://registry.nlark.com/@types/node/download/@types/node-14.14.41.tgz#d0b939d94c1d7bd53d04824af45f1139b8c45615"

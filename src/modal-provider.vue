@@ -14,12 +14,19 @@ teleport(
             :title="modal.config.title"
             :closable="modal.config.closable"
             :maskClosable="modal.config.maskClosable"
+            :width="modal.config.width || minWidth"
         )
 </template>
 
 <script setup lang="ts">
 //#region Import
-import { defineAsyncComponent, triggerRef, provide, shallowRef } from "vue";
+import {
+  defineAsyncComponent,
+  triggerRef,
+  provide,
+  shallowRef,
+  defineProps,
+} from "vue";
 import ModalContainer from "./modal-container.vue";
 import type { IModal, IModalOption } from "./interfaces";
 //#endregion
@@ -79,6 +86,13 @@ provide("modal", {
   open: openModal,
   close: closeModal,
   closeAll: closeAllModal,
+});
+
+defineProps({
+  minWidth: {
+    type: Number,
+    default: 500,
+  },
 });
 </script>
 

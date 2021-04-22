@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent, inject } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
-import { ModalProvider } from "..";
+import { ModalProvider } from "@/index";
 import Page1 from './pages/page1.vue'
 export default defineComponent({
   name: "App",
@@ -23,7 +23,8 @@ export default defineComponent({
 </script>
 
 <style>
-@import url('../dist/style.css');
+@import '@gopowerteam/vue-modal/dist/style.css';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

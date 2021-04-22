@@ -6,7 +6,7 @@
 <script lang="ts">
 import { defineComponent, inject } from "vue";
 import HelloWorld from "../components/HelloWorld.vue";
-import { useModal } from "../..";
+import { useModal } from "@/index";
 
 export default defineComponent({
   components: {},
@@ -20,7 +20,7 @@ export default defineComponent({
           props: {
             msg: "123",
           },
-          maskClosable: false,
+          maskClosable: false
         })
         .then((a: any) => {});
     }

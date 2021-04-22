@@ -8,13 +8,19 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client"],
+    "lib": ["esnext", "dom", "es2020"],
+    "types": ["vite/client","@types/node"],
+    "noImplicitAny": false,
   },
   "include": [
+    "shims-vue.d.ts",
     "example/**/*.ts",
     "example/**/*.d.ts",
     "example/**/*.tsx",
-    "example/**/*.vue"
-, "shims-vue.d.ts", "shims-vue.d.ts"  ]
+    "example/**/*.vue",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
 }

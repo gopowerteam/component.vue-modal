@@ -1,5 +1,6 @@
 <template lang="pug">
 slot
+
 teleport(
     to="body"
 )
@@ -18,8 +19,7 @@ teleport(
 
 <script setup lang="ts">
 //#region Import
-import { defineAsyncComponent, provide, shallowRef } from "@vue/runtime-core";
-import { triggerRef } from "vue";
+import { defineAsyncComponent, triggerRef, provide, shallowRef } from "vue";
 import ModalContainer from "./modal-container.vue";
 import type { IModal, IModalOption } from "./interfaces";
 //#endregion
@@ -64,11 +64,21 @@ async function closeModal(id: string, data: any) {
 
   triggerRef(modals);
 }
+
+async function closeAllModal() {
+  modals.value.forEach((modal) => {
+    modal.resolve();
+  });
+
+  modals.value = [];
+  triggerRef(modals);
+}
 //#endregion
 
 provide("modal", {
   open: openModal,
   close: closeModal,
+  closeAll: closeAllModal,
 });
 </script>
 

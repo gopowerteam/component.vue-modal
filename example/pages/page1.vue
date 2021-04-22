@@ -6,25 +6,23 @@
 <script lang="ts">
 import { defineComponent, inject } from "vue";
 import HelloWorld from "../components/HelloWorld.vue";
-import { ModalProvider, useModal } from "../../src/packages/modal";
+import { useModal } from "../..";
 
 export default defineComponent({
   components: {},
   setup() {
     const modal = useModal();
-
     function onClick() {
       modal
         .open({
-          title:'aaa',
+          title: "aaa",
           component: HelloWorld,
           props: {
             msg: "123",
           },
-          maskClosable:false
+          maskClosable: false,
         })
-        .then((a: any) => {
-        });
+        .then((a: any) => {});
     }
     return {
       onClick,

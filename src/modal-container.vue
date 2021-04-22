@@ -19,7 +19,6 @@ import { defineProps, inject } from "vue";
 import closeSVG from "@/assets/icons/close.svg";
 
 const modal = inject("modal") as any;
-
 const props = defineProps({
   component: {
     type: Object,

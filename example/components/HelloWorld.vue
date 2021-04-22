@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import { ref, defineComponent } from "vue";
-import { useModal } from "../../src/packages/modal";
+import { useModal } from "../..";
 import TTT from "./TTT.vue";
 
 export default defineComponent({

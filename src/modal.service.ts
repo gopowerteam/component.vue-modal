@@ -1,5 +1,4 @@
-import { ComponentInternalInstance, defineAsyncComponent, getCurrentInstance } from "@vue/runtime-core"
-import { inject } from "vue"
+import { inject, ComponentInternalInstance, getCurrentInstance } from "vue"
 import { IModalOption } from "./interfaces";
 
 function getModalContainer(ctx: ComponentInternalInstance | null) {
@@ -22,8 +21,7 @@ function getModalContainer(ctx: ComponentInternalInstance | null) {
 
 export function useModal() {
     const modal = inject('modal') as any
-    const ctx = getCurrentInstance()
-
+    const ctx = getCurrentInstance() as any
     return {
         open: (option: IModalOption) => {
             return modal.open(option)
@@ -35,6 +33,7 @@ export function useModal() {
             if (!id) return
 
             modal.close(id, data)
-        }
+        },
+        closeAll: modal.closeAll
     }
 }

@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import { ref, defineComponent } from "vue";
-import { useModal } from "../../src/packages/modal";
+import { useModal } from "../..";
 export default defineComponent({
   name: "HelloWorld",
   props: {

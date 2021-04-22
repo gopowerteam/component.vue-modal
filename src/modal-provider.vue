@@ -1,21 +1,22 @@
 <template lang="pug">
 slot
-
-teleport(
-    to="body"
-)
-    modal-container(
-        v-for="(modal,index) in modals"
-        :key="modal.id"
-        :id="modal.id"
-        :component="modal.component"
-        :params="modal.props"
-        :title="modal.config.title"
-        :closable="modal.config.closable"
-        :maskClosable="modal.config.maskClosable"
-        :min-width="minWidth"
-        :width="modal.config.width"
-    )
+.modal-teleport(v-if="clientMounted")
+  teleport(
+      to="body"
+  )
+    transition-group(name="modal-fade")
+      modal-container(
+          v-for="(modal,index) in modals"
+          :key="modal.id"
+          :id="modal.id"
+          :component="modal.component"
+          :params="modal.props"
+          :title="modal.config.title"
+          :closable="modal.config.closable"
+          :maskClosable="modal.config.maskClosable"
+          :min-width="minWidth"
+          :width="modal.config.width"
+      )
 </template>
 
 <script setup lang="ts">
@@ -26,6 +27,8 @@ import {
   provide,
   shallowRef,
   defineProps,
+  ref,
+  onMounted,
 } from "vue";
 import ModalContainer from "./modal-container.vue";
 import type { IModal, IModalOption } from "./interfaces";
@@ -34,6 +37,8 @@ import type { IModal, IModalOption } from "./interfaces";
 //#region Variable
 // modal列表
 const modals = shallowRef<IModal[]>([]);
+// 处理SSR错误
+const clientMounted = ref<boolean>(false);
 // #endregion
 
 //#region Function
@@ -93,6 +98,10 @@ defineProps({
     type: Number,
     default: 500,
   },
+});
+
+onMounted(() => {
+  clientMounted.value = true;
 });
 </script>
 

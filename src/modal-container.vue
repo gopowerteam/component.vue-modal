@@ -28,11 +28,11 @@ const props = defineProps({
     default: () => {},
   },
   width: {
-    type: Number,
+    type: [Number, String],
   },
   minWidth: {
-    type: Number,
-    required: true,
+    type: [Number, String],
+    required: false,
   },
   title: {
     type: String,
@@ -59,14 +59,27 @@ function onCloseModal() {
   modal.close(props.id);
 }
 
+/**
+ * 获取容器样式
+ */
 const contentStyle = computed(() => {
-  return props.width === undefined
-    ? {
-        minWidth: `${props.minWidth}px`,
-      }
-    : {
-        width: `${props.width}px`,
-      };
+  const getValue = (value) =>
+    ({
+      string: value,
+      number: `${value}px`,
+    }[typeof value]);
+
+  const style = [
+    { key: "width", value: getValue(props.width) },
+    { key: "minWidth", value: getValue(props.minWidth) },
+  ]
+    .filter(({ value }) => !!value)
+    .reduce((result, { key, value }) => {
+      result[key] = value;
+      return result;
+    }, {});
+  console.log(style);
+  return style;
 });
 </script>
 

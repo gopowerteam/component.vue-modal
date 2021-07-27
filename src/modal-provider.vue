@@ -96,7 +96,6 @@ provide("modal", {
 defineProps({
   minWidth: {
     type: Number,
-    default: 500,
   },
 });
 

@@ -1,5 +1,5 @@
 <template>
-  <modal-provider :min-width="800">
+  <modal-provider :min-width="500">
     <page1></page1>
   </modal-provider>
 </template>
@@ -8,7 +8,7 @@
 import { defineComponent, inject } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import { ModalProvider } from "@/index";
-import Page1 from './pages/page1.vue'
+import Page1 from "./pages/page1.vue";
 export default defineComponent({
   name: "App",
   components: {
@@ -16,15 +16,11 @@ export default defineComponent({
     ModalProvider,
     Page1,
   },
-  setup() {
-   
-  },
+  setup() {},
 });
 </script>
 
 <style>
-@import '@gopowerteam/vue-modal/dist/style.css';
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

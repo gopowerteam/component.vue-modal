@@ -20,7 +20,8 @@ export default defineComponent({
           props: {
             msg: "123",
           },
-          maskClosable: false
+          width: "50%",
+          maskClosable: false,
         })
         .then((a: any) => {});
     }

@@ -94,7 +94,7 @@ modal.open(ModalOption)
 | header       | Boolean      |   true   | 是否显示弹窗标题栏           |
 | closable     | Boolean      |   true   | 是否显示窗口关闭按钮         |
 | maskClosable | Boolean      |   true   | 点击mask区域是否可以关闭弹窗 |
-| width | Number      |   -  | 窗口宽度 |
+| width | Number/String      |   -  | 窗口宽度 |
 
 
 ### close

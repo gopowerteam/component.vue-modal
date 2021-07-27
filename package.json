@@ -1,6 +1,6 @@
 {
   "name": "@gopowerteam/vue-modal",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "files": [
     "dist",
     "README.md"
@@ -39,12 +39,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gopowerteam/component.vue-modal.git"
+    "url": "git+https://github.com/gopowerteam/package.vue-modal.git"
   },
   "bugs": {
-    "url": "https://github.com/gopowerteam/component.vue-modal/issues"
+    "url": "https://github.com/gopowerteam/package.vue-modal/issues"
   },
-  "homepage": "https://github.com/gopowerteam/component.vue-modal",
+  "homepage": "https://github.com/gopowerteam/package.vue-modal",
   "license": "MIT",
   "peerDependencies": {
     "vue": "^3.0.5"

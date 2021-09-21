@@ -78,7 +78,6 @@ const contentStyle = computed(() => {
       result[key] = value;
       return result;
     }, {});
-  console.log(style);
   return style;
 });
 </script>

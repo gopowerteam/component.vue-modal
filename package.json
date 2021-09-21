@@ -1,6 +1,6 @@
 {
   "name": "@gopowerteam/vue-modal",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "files": [
     "dist",
     "README.md"
@@ -23,7 +23,8 @@
     "dev": "vite",
     "serve": "vite preview",
     "build": "vue-tsc --noEmit && vite build && npm run generate:type",
-    "generate:type": "tsc --p tsconfig.dts.json --declaration --emitDeclarationOnly --esModuleInterop --outDir dist"
+    "generate:type": "tsc --p tsconfig.dts.json --declaration --emitDeclarationOnly --esModuleInterop --outDir dist",
+    "publish-npm": "npm run build && npm publish --access publish"
   },
   "devDependencies": {
     "@types/node": "^16.4.3",
@@ -36,6 +37,9 @@
     "vite": "^2.4.3",
     "vue": "^3.1.5",
     "vue-tsc": "^0.2.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "type": "git",

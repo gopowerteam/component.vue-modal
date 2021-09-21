@@ -65,7 +65,7 @@ async function openModal(option: IModalOption) {
 /**
  * 关闭Modal
  */
-async function closeModal(id: string, data: any) {
+function closeModal(id: string, data: any) {
   const index = modals.value.findIndex((x) => x.id === id);
 
   if (index < 0) return;
@@ -77,7 +77,7 @@ async function closeModal(id: string, data: any) {
   triggerRef(modals);
 }
 
-async function closeAllModal() {
+function closeAllModal() {
   modals.value.forEach((modal) => {
     modal.resolve();
   });

@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, inject } from "vue";
+import { computed, defineProps, inject, onMounted } from "vue";
 import closeSVG from "@/assets/icons/close.svg";
 const modal = inject("modal") as any;
 const props = defineProps({
@@ -49,6 +49,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  keyboard: {
+    type: Boolean,
+    default: true,
+  },
   maskClosable: {
     type: Boolean,
     default: true,
@@ -79,6 +83,19 @@ const contentStyle = computed(() => {
       return result;
     }, {});
   return style;
+});
+
+onMounted(() => {
+  if (props.closable && props.keyboard) {
+    const handleEsc = ({ key }) => {
+      if (key === "Escape") {
+        modal.close(props.id);
+        window.removeEventListener("keydown", handleEsc);
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+  }
 });
 </script>
 

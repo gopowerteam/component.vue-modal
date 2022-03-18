@@ -1,8 +1,8 @@
 <template lang="pug">
 .modal-container
-  .modal-wrapper(@click.self="maskClosable&&onCloseModal()")
-      .modal-content(:style="contentStyle")
-          .modal-header(v-if="header")
+  .modal-wrapper(:style="wrapperStyle" @click.self="maskClosable&&onCloseModal()" ref="wrapperRef")
+      .modal-content(:style="contentStyle" ref="contentRef")
+          .modal-header(v-if="header" ref="")
               .title {{title}}
               .action
                   img.close-button(
@@ -15,9 +15,37 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, inject, onMounted } from "vue";
+import {
+  computed,
+  defineProps,
+  inject,
+  onMounted,
+  ref,
+  shallowRef,
+  triggerRef,
+} from "vue";
 import closeSVG from "@/assets/icons/close.svg";
 const modal = inject("modal") as any;
+
+const wrapperRef = shallowRef<any>();
+const contentRef = shallowRef<any>();
+
+const wrapperStyle = computed(() => {
+  const wrapper = wrapperRef.value;
+  const content = contentRef.value;
+
+  const oversize =
+    wrapper && content && wrapper.clientHeight <= content.clientHeight;
+
+  return oversize
+    ? { padding: "10px 0" }
+    : {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      };
+});
+
 const props = defineProps({
   component: {
     type: Object,
@@ -85,7 +113,17 @@ const contentStyle = computed(() => {
   return style;
 });
 
-onMounted(() => {
+function onResize() {
+  if (window) {
+    window.addEventListener("resize", () => {
+      triggerRef(wrapperRef);
+      triggerRef(contentRef);
+      console.log("resize");
+    });
+  }
+}
+
+function onKeyboard() {
   if (props.closable && props.keyboard) {
     const handleEsc = ({ key }) => {
       if (key === "Escape") {
@@ -96,6 +134,11 @@ onMounted(() => {
 
     window.addEventListener("keydown", handleEsc);
   }
+}
+
+onMounted(() => {
+  onKeyboard();
+  onResize();
 });
 </script>
 
@@ -109,11 +152,10 @@ onMounted(() => {
     right 0
     background rgba(0,0,0,0.3)
     overflow auto
-    display flex
-    justify-content center
-    align-items center
+
 
     .modal-content
+        margin:auto;
         background rgb(255,255,255)
         padding 10px
         border-radius 5px

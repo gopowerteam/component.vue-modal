@@ -24,7 +24,7 @@
     "serve": "vite preview",
     "build": "vue-tsc --noEmit && vite build && npm run generate:type",
     "generate:type": "tsc --p tsconfig.dts.json --declaration --emitDeclarationOnly --esModuleInterop --outDir dist",
-    "publish-npm": "npm run build && npm publish --access publish"
+    "npm:publish": "npm run build && npm publish --access publish"
   },
   "devDependencies": {
     "@types/node": "^16.4.3",
